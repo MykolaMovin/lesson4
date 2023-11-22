@@ -1,10 +1,16 @@
 // Practical task 1
 function calcRectangleArea(width, height){
-    if(typeof width === 'number' && typeof height === 'number'){
+    if(typeof width === 'number' && typeof height === 'number' && width != Nan && height != Nan){
         return width * height;
     } else{
         throw new TypeError('width/height must be a number');
     };
+};
+
+try{
+    console.log(calcRectangleArea(2, 'abc'));
+}catch(e){
+    console.log(e.name, e.message);
 };
 
 // Practical task 2
@@ -13,12 +19,12 @@ function checkAge(age){
         if(age === 0) throw new Error('The field is empty ! Please enter your age')
         else if (isNaN(age)) throw new TypeError('Age must be a number')
         else if (age < 14) throw new RangeError('Age must be greater than or equal to 14')
-        else console.log('Welcome')
+        else console.log('Welcome');
     } catch(error){
-        console.log(error.name, error.message)
-    }
-}
-let age = Number(prompt('Please enter your age'));
+        console.log(error.name, error.message);
+    };
+};
+let age = +prompt('Please enter your age');
 
 checkAge(age);
 
@@ -41,7 +47,7 @@ function showMonth(month){
         }
     } else {
         throw new MonthException('Incorrect month number');
-    }
+    };
 };
 
 function validMonth(month){
@@ -56,7 +62,13 @@ class MonthException extends Error{
         this.name = 'MonthException';
     };
 };
- 
+
+try{
+    console(showMonth('test'));
+} catch(e){
+    console.log(e.name, e.message)
+}
+
 // Practical task 4
 function showUser(id){
         if(element > 0) return {id: id};
@@ -69,7 +81,7 @@ function showUsers(ids){
         try{
             correctIds.push(showUser(element));
         }catch(e){
-            console.log(e.name, e.message)
+            console.log(e.name, e.message);
         }
     };
     return correctIds;

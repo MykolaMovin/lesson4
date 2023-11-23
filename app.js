@@ -1,6 +1,6 @@
 // Practical task 1
 function calcRectangleArea(width, height){
-    if(typeof width === 'number' && typeof height === 'number' && width != Nan && height != Nan){
+    if(typeof width === 'number' && typeof height === 'number' && width != NaN && height != NaN){
         return width * height;
     } else{
         throw new TypeError('width/height must be a number');
